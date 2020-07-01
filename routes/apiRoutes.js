@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
     app.get("/api/workouts", function (req, res) {
-        db.Workout.find({}).then(function (data) {
+        db.Workout.find({}).sort({ _id: -1 }).limit(1).then(function (data) {
             res.json(data);
         });
     });
